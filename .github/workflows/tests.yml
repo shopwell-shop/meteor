@@ -210,7 +210,7 @@ jobs:
   #         - trunk
   #   steps:
   #     - name: Setup shopwell
-  #       uses: shopwell/setup-shopwell@main
+  #       uses: shopwell-shop/setup-shopwell@main
   #       with:
   #         path: shopwell/
   #         install: "true"
