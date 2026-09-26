@@ -7,8 +7,8 @@ In case you want to make a larger change to the code base, open up
 an issue first before writing any code. That way you don't lose your
 valuable time in case we might reject the pull request.
 
-Shopwell is available under [MIT license](https://github.com/shopwell-shop/meteor/blob/main/LICENSE.md).
-Contribute your code under MIT license.
+Shopwell is available under the [Apache License 2.0](https://github.com/shopwell-shop/meteor/blob/main/LICENSE).
+Contribute your code under the Apache License 2.0.
 
 If you've never contributed to an open source project you might
 find the [this guide](https://opensource.guide/how-to-contribute/) helpful.

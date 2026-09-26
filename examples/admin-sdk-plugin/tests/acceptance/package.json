@@ -4,7 +4,7 @@
   "private": true,
   "description": "",
   "keywords": [],
-  "license": "ISC",
+  "license": "Apache-2.0",
   "author": "",
   "type": "module",
   "main": "index.js",

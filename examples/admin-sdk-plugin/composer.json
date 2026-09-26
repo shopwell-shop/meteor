@@ -2,7 +2,7 @@
   "name": "swag/sdk-test-plugin",
   "description": "Meteor Admin SDK Testplugin",
   "type": "shopwell-platform-plugin",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "autoload": {
     "psr-4": {
       "TestPlugin\\": "src/"

@@ -5,7 +5,7 @@
   "private": true,
   "description": "The monorepo that contains all Meteor related projects",
   "keywords": [],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "validate:changesets": "node scripts/validate-changesets.js",
     "validate:docs-redirects": "node scripts/validate-docs-redirects.js",

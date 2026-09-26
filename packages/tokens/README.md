@@ -45,4 +45,4 @@ a DOM element as far up in the DOM tree as possible.
 
 ## License
 
-Shopwell 6 is completely free and released under the [MIT License](./LICENSE.md).
+Shopwell 6 is completely free and released under the [Apache License 2.0](../../LICENSE).

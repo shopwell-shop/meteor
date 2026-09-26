@@ -16,7 +16,7 @@
     "format": "prettier --write ."
   },
   "keywords": [],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "description": "The stylelint plugin for the Meteor Design System",
   "peerDependencies": {
     "@shopwell-ag/meteor-tokens": "workspace:*",

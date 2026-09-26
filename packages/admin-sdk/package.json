@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/shopwell-shop/meteor.git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "exports": {
     "./es/channel": {
       "import": "./es/channel.js",

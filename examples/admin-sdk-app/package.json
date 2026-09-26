@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/shopwell-shop/meteor.git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": "Shopwell",
   "main": "index.js",
   "scripts": {

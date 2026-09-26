@@ -8,7 +8,7 @@
   },
   "type": "module",
   "exports": "./index.js",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "private": false,
   "peerDependencies": {
     "prettier": ">=3.0.0"

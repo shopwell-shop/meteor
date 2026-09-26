@@ -4,7 +4,7 @@
   "private": true,
   "description": "Integration tests for create-meteor-extension CLI",
   "keywords": [],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": "",
   "type": "module",
   "main": "index.js",
