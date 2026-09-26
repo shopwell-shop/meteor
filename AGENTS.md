@@ -25,3 +25,16 @@ High-level repo guide for orientation. Stay at this level first; read package-lo
 - Prefer source files over generated output.
 - Usually ignore: `dist/`, `build/`, `es/`, `umd/`, `coverage/`, `.nuxt/`, `.output/`, `storybook-static/`, `node_modules/`, `.turbo/`.
 - When SDK behavior changes, update `docs/admin-sdk/` too.
+
+## Shopwell licensing guardrail
+
+- Shopwell-owned code and publishable subpackages use Apache License 2.0.
+- Project-owned package/composer manifests must declare `Apache-2.0`.
+- Registered project-owned `LICENSE` files contain the standard Apache-2.0 text.
+- Original upstream legal text is preserved verbatim in the root `NOTICE`; do not
+  brand, shorten, delete, or move it into `LICENSE.upstream-*` files.
+- Dependency lock files keep truthful third-party license metadata.
+- Before commit, push, release, or sync completion, run:
+  `../sync-upstream/bin/syncctl audit-license meteor`.
+- If LICENSE, NOTICE, owned manifests, or upstream license inventory changes, update
+  `../sync-upstream/config/repos.json` in the same task. A failed audit blocks completion.
