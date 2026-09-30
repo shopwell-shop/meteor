@@ -17,7 +17,7 @@
     "lint:types": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@shopwell-ag/entity-schema-types": "^5.8.6",
+    "@shopwell-ag/entity-schema-types": "^7.15.0",
     "@shopwell-ag/meteor-admin-sdk": "workspace:*",
     "@shopwell-ag/meteor-component-library": "workspace:*",
     "@vitejs/plugin-vue": "^4.6.2",

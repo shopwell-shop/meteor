@@ -77,8 +77,8 @@ importers:
   examples/admin-sdk-app:
     dependencies:
       '@shopwell-ag/entity-schema-types':
-        specifier: ^5.8.6
-        version: 5.8.11
+        specifier: ^7.15.0
+        version: 7.15.0
       '@shopwell-ag/meteor-admin-sdk':
         specifier: workspace:*
         version: link:../../packages/admin-sdk
@@ -160,8 +160,8 @@ importers:
   examples/admin-sdk-plugin/tests/acceptance:
     dependencies:
       '@shopwell-ag/acceptance-test-suite':
-        specifier: ^3.8.4
-        version: 3.8.4(axe-core@4.9.1)(playwright-core@1.47.2)
+        specifier: ^12.21.2
+        version: 12.21.2(axe-core@4.9.1)(playwright-core@1.47.2)
     devDependencies:
       '@eslint/js':
         specifier: ^9.20.0
@@ -5196,11 +5196,11 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@shopwell-ag/acceptance-test-suite@3.8.4':
-    resolution: {integrity: sha512-OJ4y+VNJk+m5Zc8lwbcBpq1+7Sf8LQTCeuREEizPEgx02dKuQ4IaZLmoj7qrvL4XkNgg0r+NFRckn41Y7zo33Q==}
+  '@shopwell-ag/acceptance-test-suite@12.21.2':
+    resolution: {integrity: sha512-USgZ9kFhX4tc8HCmyZSd+KbggKa1ZjB8ISgTybGXzVacceotHgUvz4BvL3vSDUWrywzPx1sNhD8+qDhu/ntbvQ==}
 
-  '@shopwell-ag/entity-schema-types@5.8.11':
-    resolution: {integrity: sha512-AKBAzO8mubunU2ksqe1xo5STWBg13ixYxljBkEcIb9Sh5h2pDQFI0j9zgYdwbVjVdCCTRqt6ttMjueQ+aBJe5g==}
+  '@shopwell-ag/entity-schema-types@7.15.0':
+    resolution: {integrity: sha512-qW2dmfCnn/B1tRvY1U3m6Rj2LZV6A+ohob5aDm1sD7Ou1KAKscgigPFH5R4PtEVXGW1fDBqtYQAvPQ3FxqkUQg==}
 
   '@shopwell/api-client@0.5.0':
     resolution: {integrity: sha512-JrHbCurhJgFyjT4kDdcgSkTa3pxM2JwvUrgFYMYczdUP0NbHaP9Aq1hL4wWAgBn0Mvs3SDGu0nu34Ffu0dtB3A==}
@@ -20823,7 +20823,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@shopwell-ag/acceptance-test-suite@3.8.4(axe-core@4.9.1)(playwright-core@1.47.2)':
+  '@shopwell-ag/acceptance-test-suite@12.21.2(axe-core@4.9.1)(playwright-core@1.47.2)':
     dependencies:
       '@axe-core/playwright': 4.9.1(playwright-core@1.47.2)
       '@playwright/test': 1.47.2
@@ -20835,7 +20835,7 @@ snapshots:
       - axe-core
       - playwright-core
 
-  '@shopwell-ag/entity-schema-types@5.8.11': {}
+  '@shopwell-ag/entity-schema-types@7.15.0': {}
 
   '@shopwell/api-client@0.5.0':
     dependencies:
