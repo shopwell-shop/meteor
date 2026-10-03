@@ -1,13 +1,72 @@
 import path from 'path';
 import fs from 'fs';
-import express from 'express';
-import { App } from "shopwell-app-server-sdk";
-import { Config } from 'shopwell-app-server-sdk/config';
-import { InMemoryShopRepository } from 'shopwell-app-server-sdk/repository';
-import { NodeHmacSigner } from 'shopwell-app-server-sdk/runtime/node/signer';
-import { convertRequest, convertResponse, rawRequestMiddleware } from 'shopwell-app-server-sdk/runtime/node/express';
+import express, {
+    type NextFunction,
+    type Request as ExpressRequest,
+    type Response as ExpressResponse,
+} from 'express';
+import {
+    AppServer,
+    InMemoryShopRepository,
+    type Configuration,
+} from '@shopwell-ag/app-server-sdk';
 import { createServer as createViteServer } from 'vite';
 import vue from '@vitejs/plugin-vue';
+
+type RawBodyRequest = ExpressRequest & { rawBody?: string };
+
+function rawRequestMiddleware(req: RawBodyRequest, _res: ExpressResponse, next: NextFunction) {
+    const contentType = req.headers['content-type'] || '';
+
+    if (contentType.split(';')[0] !== 'application/json') {
+        next();
+        return;
+    }
+
+    let data = '';
+    req.setEncoding('utf8');
+    req.on('data', (chunk: string) => {
+        data += chunk;
+    });
+    req.on('end', () => {
+        req.rawBody = data;
+        next();
+    });
+}
+
+function convertRequest(req: RawBodyRequest): Request {
+    const headers = new Headers();
+
+    Object.entries(req.headers).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+            value.forEach((item) => headers.append(key, item));
+        } else if (value !== undefined) {
+            headers.set(key, value);
+        }
+    });
+
+    const url = new URL(req.originalUrl, `${req.protocol}://${req.get('host')}`);
+    const body = req.method === 'GET' || req.method === 'HEAD' ? undefined : req.rawBody || '';
+
+    return new Request(url, {
+        method: req.method,
+        headers,
+        body,
+    });
+}
+
+async function convertResponse(response: Response, expressResponse: ExpressResponse) {
+    expressResponse.status(response.status);
+    response.headers.forEach((value, key) => expressResponse.setHeader(key, value));
+
+    const body = await response.text();
+    if (body.length === 0) {
+        expressResponse.end();
+        return;
+    }
+
+    expressResponse.send(body);
+}
 
 async function createServer() {
     const PORT = process.env.PORT || 8888;
@@ -18,27 +77,25 @@ async function createServer() {
     /**
      * Configure the app server for authentication and verification
      */
-    const cfg: Config = {
-    appName: 'MeteorAdminSDKApp',
-    appSecret: 'testSecret',
-    authorizeCallbackUrl: `${URL}/authorize/callback`
+    const cfg: Configuration = {
+        appName: 'MeteorAdminSDKApp',
+        appSecret: 'testSecret',
+        authorizeCallbackUrl: `${URL}/authorize/callback`
     };
 
-    const appServer = new App(cfg, new InMemoryShopRepository, new NodeHmacSigner);
+    const appServer = new AppServer(cfg, new InMemoryShopRepository());
 
     app.use(rawRequestMiddleware);
 
     app.get('/authorize', async (req, res) => {
         const resp = await appServer.registration.authorize(convertRequest(req));
-
-
-        convertResponse(resp, res);
+        await convertResponse(resp, res);
     });
 
     app.post('/authorize/callback', async (req, res) => {
         const resp = await appServer.registration.authorizeCallback(convertRequest(req));
 
-        convertResponse(resp, res);
+        await convertResponse(resp, res);
     });
 
     /**
