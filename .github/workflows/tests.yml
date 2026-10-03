@@ -32,13 +32,13 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-        if: ${{ github.event.pull_request.head.repo.full_name == 'shopwell/meteor' }}
+        if: ${{ github.event.pull_request.head.repo.full_name == 'shopwell-shop/meteor' }}
 
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-        if: ${{ github.event.pull_request.head.repo.full_name != 'shopwell/meteor' }}
+        if: ${{ github.event.pull_request.head.repo.full_name != 'shopwell-shop/meteor' }}
 
       - uses: pnpm/action-setup@v4
 
@@ -185,7 +185,22 @@ jobs:
     steps:
       - name: Generate versions
         id: versions
-        uses: shopwell/github-actions/versions@main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tags="$(git ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/shopwell-shop/shopwell.git | cut -d/ -f3 | grep -v -i -E '(dev|beta|alpha|rc)')"
+          current="$(printf '%s\n' "$tags" | grep '^v6\.7\.' | head -n1)"
+          latest="$(printf '%s\n' "$tags" | grep '^v6\.7\.' | tail -n1)"
+          lts_first="$(printf '%s\n' "$tags" | grep '^v6\.6\.' | head -n1 || true)"
+          lts_latest="$(printf '%s\n' "$tags" | grep '^v6\.6\.' | tail -n1 || true)"
+          {
+            echo "first-version=$current"
+            echo "latest-version=$latest"
+            echo "lts-first-version=$lts_first"
+            echo "lts-latest-version=$lts_latest"
+          } >> "$GITHUB_OUTPUT"
 
   # ats:
   #   name: Acceptance tests

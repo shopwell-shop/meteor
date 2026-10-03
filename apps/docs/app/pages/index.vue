@@ -65,7 +65,8 @@ const vReveal: ObjectDirective<HTMLElement, number | undefined> = {
 
 const appConfig = useAppConfig();
 
-const githubUrl = appConfig.github?.url ?? "https://github.com/shopwell-shop/meteor";
+const githubUrl =
+  appConfig.github?.url ?? "https://github.com/shopwell-shop/meteor";
 const npmUrl =
   "https://www.npmjs.com/package/@shopwell-ag/meteor-component-library";
 

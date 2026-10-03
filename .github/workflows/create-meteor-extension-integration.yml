@@ -17,10 +17,10 @@ jobs:
     steps:
       # 1. Setup Shopwell 6 using shopwell/setup-shopwell
       - name: Setup Shopwell
-        uses: shopwell-shop/setup-shopwell@main
+        uses: shopwell-shop/setup-shopwell@09547108e5c5cfdf4ec37646e018ac0b7a7c26ed
         with:
           shopwell-version: trunk
-          shopwell-repository: shopwell/shopwell
+          shopwell-repository: shopwell-shop/shopwell
           install: true
           install-locale: en-GB
           install-currency: EUR

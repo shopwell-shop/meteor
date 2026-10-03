@@ -1,9 +1,12 @@
 body {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* Only enable Inter-only features here. Apple's PingFang uses "cv10" as its
+     traditional-Chinese variant selector, and Han glyphs fall back to PingFang on
+     macOS, so enabling it silently renders Chinese text in traditional forms.
+     Do not add "cv08", "cv09" or "cv10" back to this list. */
   font-feature-settings:
     "ss01" on,
-    "cv10" on,
     "cv11" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
