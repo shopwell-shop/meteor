@@ -3,7 +3,7 @@ import { createI18n } from 'vue-i18n';
 import { componentMap } from './locations';
 import { location, context } from '@shopwell-ag/meteor-admin-sdk';
 import enGb from '../snippet/en-GB.json';
-import deDe from '../snippet/de-DE.json';
+import zhCn from '../snippet/zh-CN.json';
 
 // Importing styles
 import '@shopwell-ag/meteor-component-library/styles.css';
@@ -33,14 +33,14 @@ export default async function runApp() {
         fallbackLocale,
         messages: {
             'en-GB': enGb,
-            'de-DE': deDe,
+            'zh-CN': zhCn,
         },
     });
 
     // Subscribe to locale changes
     context.subscribeLocale(({ locale, fallbackLocale }) => {
-        i18n.global.locale.value = locale as 'en-GB' | 'de-DE';
-        i18n.global.fallbackLocale.value = fallbackLocale as 'en-GB' | 'de-DE';
+        i18n.global.locale.value = locale as 'en-GB' | 'zh-CN';
+        i18n.global.fallbackLocale.value = fallbackLocale as 'en-GB' | 'zh-CN';
     });
 
     // Create the Vue app with the selected component for the location
