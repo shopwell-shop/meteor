@@ -193,8 +193,8 @@ jobs:
           tags="$(git ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/shopwell-shop/shopwell.git | cut -d/ -f3 | grep -v -i -E '(dev|beta|alpha|rc)')"
           current="$(printf '%s\n' "$tags" | grep '^v6\.7\.' | head -n1)"
           latest="$(printf '%s\n' "$tags" | grep '^v6\.7\.' | tail -n1)"
-          lts_first="$(printf '%s\n' "$tags" | grep '^v6\.6\.' | head -n1)"
-          lts_latest="$(printf '%s\n' "$tags" | grep '^v6\.6\.' | tail -n1)"
+          lts_first="$(printf '%s\n' "$tags" | grep '^v6\.6\.' | head -n1 || true)"
+          lts_latest="$(printf '%s\n' "$tags" | grep '^v6\.6\.' | tail -n1 || true)"
           {
             echo "first-version=$current"
             echo "latest-version=$latest"
