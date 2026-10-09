@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.15.1
+
+### Patch Changes
+
+- [#3](https://github.com/shopwell-shop/meteor/pull/3) [`d77f829`](https://github.com/shopwell-shop/meteor/commit/d77f8292c800330a9a92d58552b7f54338ff40d7) Thanks [@xgll7](https://github.com/xgll7)! - Stop requiring read privileges for empty entity collections in dataset messages. Write privileges are still checked.
+
 ## 6.15.0
 
 ### Minor Changes
