@@ -30,26 +30,34 @@ const colors = ["orange", "pink", "yellow", "purple", "red", "blue", "green"] as
 const props = withDefaults(
   defineProps<{
     size?: "2xs" | "xs" | "s" | "m" | "l";
-    firstName?: string;
-    lastName?: string;
+    name?: string;
     imageUrl?: string;
     variant?: "circle" | "square";
   }>(),
   {
     size: "m",
-    firstName: undefined,
-    lastName: undefined,
+    name: undefined,
     imageUrl: undefined,
     variant: "circle",
   },
 );
 
 const avatarInitials = computed(() => {
-  return (props.firstName?.[0] ?? "") + (props.lastName?.[0] ?? "");
+  const parts = (props.name ?? "").trim().split(/\s+/).filter(Boolean);
+
+  if (parts.length === 0) {
+    return "";
+  }
+
+  if (parts.length === 1) {
+    return parts[0].slice(0, 1);
+  }
+
+  return parts[0][0] + parts[parts.length - 1][0];
 });
 
 const color = computed(() => {
-  const nameLength = (props.firstName?.length ?? 0) + (props.lastName?.length ?? 0);
+  const nameLength = (props.name ?? "").trim().length;
   return colors[nameLength % colors.length];
 });
 </script>

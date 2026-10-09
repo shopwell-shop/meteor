@@ -9,16 +9,14 @@ export default {
 export const VisualTestRenderAvatar: MtAvatarStory = {
   name: "Render avatar",
   args: {
-    firstName: "John",
-    lastName: "Doe",
+    name: "John Doe",
   },
 };
 
 export const VisualTestAvatarSquare: MtAvatarStory = {
   name: "Render avatar in square variant",
   args: {
-    firstName: "John",
-    lastName: "Doe",
+    name: "John Doe",
     variant: "square",
   },
 };
@@ -30,51 +28,53 @@ export const VisualTestAvatarImage: MtAvatarStory = {
   },
 };
 
+// The name lengths map onto the color list via `name length % 7`,
+// so each story below actually renders the color it is named after.
 export const VisualTestColorOrange: MtAvatarStory = {
   name: "Render avatar with orange color",
   args: {
-    firstName: "Jane",
+    name: "Abigail",
   },
 };
 
 export const VisualTestColorPink: MtAvatarStory = {
   name: "Render avatar with pink color",
   args: {
-    firstName: "James",
+    name: "A",
   },
 };
 
 export const VisualTestColorYellow: MtAvatarStory = {
   name: "Render avatar with yellow color",
   args: {
-    firstName: "Amanda",
+    name: "Jo",
   },
 };
 
 export const VisualTestColorPurple: MtAvatarStory = {
   name: "Render avatar with purple color",
   args: {
-    firstName: "Abigail",
+    name: "Joe",
   },
 };
 
 export const VisualTestColorRed: MtAvatarStory = {
   name: "Render avatar with red color",
   args: {
-    firstName: "A",
+    name: "Jane",
   },
 };
 
 export const VisualTestColorBlue: MtAvatarStory = {
   name: "Render avatar with blue color",
   args: {
-    firstName: "Jo",
+    name: "James",
   },
 };
 
 export const VisualTestColorGreen: MtAvatarStory = {
   name: "Render avatar with green color",
   args: {
-    firstName: "Joe",
+    name: "Amanda",
   },
 };
