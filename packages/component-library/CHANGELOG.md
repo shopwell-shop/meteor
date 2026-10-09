@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.9.0
+
+### Minor Changes
+
+- [#6](https://github.com/shopwell-shop/meteor/pull/6) [`7f5c5ad`](https://github.com/shopwell-shop/meteor/commit/7f5c5adf3e4689f381f0b9cd38e7400d044b14ff) Thanks [@xgll7](https://github.com/xgll7)! - Replace the `firstName` and `lastName` props of `MtAvatar` with a single `name` prop. Initials are derived from the first letter of the first and last word of `name`, and the background color is derived from the length of `name`.
+
+- [#3](https://github.com/shopwell-shop/meteor/pull/3) [`d77f829`](https://github.com/shopwell-shop/meteor/commit/d77f8292c800330a9a92d58552b7f54338ff40d7) Thanks [@xgll7](https://github.com/xgll7)! - Add a `disabled` prop to `MtStatusDot` that renders the dot in the disabled color token of its variant and turns off `pulse`.
+
+### Patch Changes
+
+- [#3](https://github.com/shopwell-shop/meteor/pull/3) [`d77f829`](https://github.com/shopwell-shop/meteor/commit/d77f8292c800330a9a92d58552b7f54338ff40d7) Thanks [@xgll7](https://github.com/xgll7)! - Fix `mt-tooltip` not updating when the `content` prop changes
+
+- [#3](https://github.com/shopwell-shop/meteor/pull/3) [`d77f829`](https://github.com/shopwell-shop/meteor/commit/d77f8292c800330a9a92d58552b7f54338ff40d7) Thanks [@xgll7](https://github.com/xgll7)! - Fix notifications showing twice when `mt-snackbar` is mounted more than once. Only one mounted `mt-snackbar` renders them now.
+
+- Updated dependencies [[`d77f829`](https://github.com/shopwell-shop/meteor/commit/d77f8292c800330a9a92d58552b7f54338ff40d7), [`d77f829`](https://github.com/shopwell-shop/meteor/commit/d77f8292c800330a9a92d58552b7f54338ff40d7)]:
+  - @shopwell-ag/meteor-admin-sdk@6.15.1
+  - @shopwell-ag/meteor-icon-kit@5.12.0
+
 ## 5.8.0
 
 ### Minor Changes
