@@ -36,7 +36,3 @@ This serves Storybook on `http://localhost:6006` and the documentation on `http:
 ## Contribute to Meteor
 
 Pull requests are welcome. See the [contribution guidelines](./CONTRIBUTING.md) for more information.
-
-## License
-
-Source code is under a custom license based on MIT.
