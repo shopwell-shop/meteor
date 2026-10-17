@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## 5.13.0
+
+### Minor Changes
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`a41ce36`](https://github.com/shopwell-shop/meteor/commit/a41ce36c68b5434e3ab6d2cdad807d4d20902b2e) Thanks [@xgll7](https://github.com/xgll7)! - Added multiple icons:
+  `regular-shopping-bag-return`
+  `solid-shopping-bag-return`
+
 ## 5.12.0
 
 ### Minor Changes

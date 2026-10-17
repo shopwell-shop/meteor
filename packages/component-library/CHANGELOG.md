@@ -1,5 +1,29 @@
 # Changelog
 
+## 5.10.0
+
+### Minor Changes
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`8e3d9a1`](https://github.com/shopwell-shop/meteor/commit/8e3d9a17ba58393d82b8f5384c0525eaba1cbf3b) Thanks [@xgll7](https://github.com/xgll7)! - Add the `mt-nav` component for the main application navigation, with sections, up to three levels of nested rows and keyboard navigation
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`a0cf660`](https://github.com/shopwell-shop/meteor/commit/a0cf660c152f7043c5d502cc8d0b7fc2932d91b9) Thanks [@xgll7](https://github.com/xgll7)! - Add a `disabled` prop to `MtStatusDot` that renders the dot in the disabled color token of its variant and turns off `pulse`.
+
+### Patch Changes
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`823f796`](https://github.com/shopwell-shop/meteor/commit/823f79695372be9ac3f4238cf642d424ec501644) Thanks [@xgll7](https://github.com/xgll7)! - Fix `mt-tooltip` not updating when the `content` prop changes
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`ff425d6`](https://github.com/shopwell-shop/meteor/commit/ff425d6e11a32f9b62339f4ba8aa514ecc86e41b) Thanks [@xgll7](https://github.com/xgll7)! - Fix an invalid `@media speech` rule with an empty selector in `mt-tabs.css`. Strict CSS minifiers such as Lightning CSS, which Vite 8 uses, no longer fail when they bundle the stylesheet.
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`040e937`](https://github.com/shopwell-shop/meteor/commit/040e9379f7d0714e732216ae9426aeaf63309dd9) Thanks [@xgll7](https://github.com/xgll7)! - Fix Shift+Tab in `mt-select`: leaving a select backwards no longer clicks the element before it, such as a checkbox or a button, and entering a select backwards opens it like Tab does.
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`9a3a118`](https://github.com/shopwell-shop/meteor/commit/9a3a1188081f68b4fbc9ae0ab6942efb7f58d255) Thanks [@xgll7](https://github.com/xgll7)! - Fix notifications showing twice when `mt-snackbar` is mounted more than once. Only one mounted `mt-snackbar` renders them now.
+
+- [#12](https://github.com/shopwell-shop/meteor/pull/12) [`54cf040`](https://github.com/shopwell-shop/meteor/commit/54cf040c77eb133d0ad277cd1d2a625dfee1109f) Thanks [@xgll7](https://github.com/xgll7)! - Fix `mt-tooltip` closing again by itself when its trigger gets focus right after rendering, for example through a quick Tab or a `focus()` call.
+
+- Updated dependencies [[`7db4cbd`](https://github.com/shopwell-shop/meteor/commit/7db4cbd909860516cb57c1883ef03926b18f64cd), [`a41ce36`](https://github.com/shopwell-shop/meteor/commit/a41ce36c68b5434e3ab6d2cdad807d4d20902b2e)]:
+  - @shopwell-ag/meteor-admin-sdk@6.15.2
+  - @shopwell-ag/meteor-icon-kit@5.13.0
+
 ## 5.9.0
 
 ### Minor Changes
