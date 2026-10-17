@@ -1,0 +1,21 @@
+{
+  "url": "https://meteor.shopwell.cn/mcp",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "Shopwell Meteor",
+    "title": "Shopwell Meteor",
+    "version": "1.0.0"
+  },
+  "description": "Documentation, components, examples, icons, and design tokens of the Shopwell Meteor design system.",
+  "iconUrl": "https://meteor.shopwell.cn/shopwell-signet.svg",
+  "documentationUrl": "https://meteor.shopwell.cn/documentation/getting-started/agents",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://meteor.shopwell.cn/mcp"
+  },
+  "authentication": {
+    "required": false
+  },
+  "tools": "dynamic",
+  "resources": "dynamic"
+}
