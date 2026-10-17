@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import MtRadioGroupRoot from "@shopwell-ag/meteor-component-library/MtRadioGroupRoot";
-import MtRadioGroupList from "@shopwell-ag/meteor-component-library/MtRadioGroupList";
-import MtRadioGroupCardItem from "@shopwell-ag/meteor-component-library/MtRadioGroupCardItem";
+import {
+  MtRadioGroupRoot,
+  MtRadioGroupList,
+  MtRadioGroupCardItem,
+} from "@shopwell-ag/meteor-component-library";
 
 const selectedShippingMethod = ref("standard");
 </script>
