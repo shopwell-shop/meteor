@@ -1,5 +1,12 @@
 # administration
 
+## 1.0.66
+
+### Patch Changes
+
+- Updated dependencies [[`3dc12eb`](https://github.com/shopwell-shop/meteor/commit/3dc12eb137c077b59e040d840a46233b2071740b), [`3b88aac`](https://github.com/shopwell-shop/meteor/commit/3b88aac5f2a8f8ea5adc2fb1da6e63e8d2e3cbf0), [`3b88aac`](https://github.com/shopwell-shop/meteor/commit/3b88aac5f2a8f8ea5adc2fb1da6e63e8d2e3cbf0), [`3b88aac`](https://github.com/shopwell-shop/meteor/commit/3b88aac5f2a8f8ea5adc2fb1da6e63e8d2e3cbf0)]:
+  - @shopwell-ag/meteor-component-library@5.11.0
+
 ## 1.0.65
 
 ### Patch Changes

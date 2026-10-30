@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.11.0
+
+### Minor Changes
+
+- [#14](https://github.com/shopwell-shop/meteor/pull/14) [`3b88aac`](https://github.com/shopwell-shop/meteor/commit/3b88aac5f2a8f8ea5adc2fb1da6e63e8d2e3cbf0) Thanks [@xgll7](https://github.com/xgll7)! - Add a `disabled` prop to `mt-radio-group-item`, `mt-radio-group-card-item` and `mt-radio-group-custom-item` to disable a single option of a radio group. The `mt-radio-group-indicator` inside a disabled `mt-radio-group-custom-item` is disabled as well, and the custom item passes the state to its default slot as `disabled`.
+
+### Patch Changes
+
+- [#14](https://github.com/shopwell-shop/meteor/pull/14) [`3dc12eb`](https://github.com/shopwell-shop/meteor/commit/3dc12eb137c077b59e040d840a46233b2071740b) Thanks [@xgll7](https://github.com/xgll7)! - Fix form field hints not appearing or disappearing when a conditional `hint` slot changes after mounting.
+
+- [#14](https://github.com/shopwell-shop/meteor/pull/14) [`3b88aac`](https://github.com/shopwell-shop/meteor/commit/3b88aac5f2a8f8ea5adc2fb1da6e63e8d2e3cbf0) Thanks [@xgll7](https://github.com/xgll7)! - Fix `mt-radio-group-item` and `mt-radio-group-custom-item` emitting `update:modelValue` twice when a label is clicked. Both now select on the native `change` event, like `mt-radio-group-card-item`. Clicks on links, buttons and form controls inside `mt-radio-group-custom-item` no longer select it.
+
+- [#14](https://github.com/shopwell-shop/meteor/pull/14) [`3b88aac`](https://github.com/shopwell-shop/meteor/commit/3b88aac5f2a8f8ea5adc2fb1da6e63e8d2e3cbf0) Thanks [@xgll7](https://github.com/xgll7)! - Fix `mt-radio-group-root` leaving its radio group without an accessible name. The group is now labelled by `label` and described by `hint` and `error` in addition to `ariaDescribedBy`, and the label no longer points at an element that does not exist.
+
 ## 5.10.0
 
 ### Minor Changes
