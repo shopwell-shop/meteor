@@ -24,7 +24,8 @@
     "LICENSE",
     "readme.md",
     "docs",
-    "bin"
+    "bin",
+    "NOTICE"
   ],
   "license": "Apache-2.0",
   "dependencies": {

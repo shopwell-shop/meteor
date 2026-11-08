@@ -20,7 +20,9 @@
   "author": "Shopwell",
   "main": "index.js",
   "files": [
-    "icons"
+    "icons",
+    "LICENSE",
+    "NOTICE"
   ],
   "scripts": {
     "docs:copy": "../developer-portal/docs-cli link --src docs --dst resources/meteor-icon-kit",

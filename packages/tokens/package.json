@@ -20,7 +20,9 @@
   "main": "index.js",
   "files": [
     "deliverables",
-    "dictionaries"
+    "dictionaries",
+    "LICENSE",
+    "NOTICE"
   ],
   "scripts": {
     "format": "prettier --write .",
