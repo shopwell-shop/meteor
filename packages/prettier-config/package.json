@@ -1,6 +1,6 @@
 {
   "name": "@shopwell-ag/meteor-prettier-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Prettier configuration for Shopwell projects",
   "repository": {
     "type": "git",

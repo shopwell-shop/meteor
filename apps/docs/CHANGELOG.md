@@ -1,5 +1,14 @@
 # meteor-docs
 
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies [[`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c)]:
+  - @shopwell-ag/meteor-component-library@5.12.0
+  - @shopwell-ag/meteor-icon-kit@5.13.1
+  - @shopwell-ag/meteor-tokens@1.4.2
+
 ## 0.0.15
 
 ### Patch Changes
