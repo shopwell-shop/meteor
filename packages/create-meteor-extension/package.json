@@ -2,6 +2,11 @@
   "name": "@shopwell-ag/create-meteor-extension",
   "version": "0.0.2",
   "description": "create-meteor-extension CLI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shopwell-shop/meteor",
+    "directory": "packages/create-meteor-extension"
+  },
   "types": "build/types/types.d.ts",
   "bin": {
     "create-meteor-extension": "bin/create-meteor-extension"
