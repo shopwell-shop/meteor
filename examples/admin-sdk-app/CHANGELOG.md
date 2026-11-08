@@ -1,5 +1,13 @@
 # meteor-admin-sdk-app
 
+## 1.0.89
+
+### Patch Changes
+
+- Updated dependencies [[`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c)]:
+  - @shopwell-ag/meteor-component-library@5.12.0
+  - @shopwell-ag/meteor-admin-sdk@6.16.0
+
 ## 1.0.88
 
 ### Patch Changes

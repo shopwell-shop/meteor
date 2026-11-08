@@ -1,6 +1,6 @@
 {
   "name": "@shopwell-ag/create-meteor-extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "create-meteor-extension CLI",
   "types": "build/types/types.d.ts",
   "bin": {
@@ -55,7 +55,10 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testPathIgnorePatterns": ["/node_modules/", "template-dependencies"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "template-dependencies"
+    ]
   },
   "prettier": {
     "semi": false,

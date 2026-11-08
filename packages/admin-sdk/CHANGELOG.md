@@ -1,5 +1,23 @@
 # Changelog
 
+## 6.16.0
+
+### Minor Changes
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Add optional `tabs` to `ui.mediaModal.open` to show additional tabs that render locations of the app opening the modal, and `ui.mediaModal.select` for such a tab to pass its selection to the modal's callback and close the modal.
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Add an internal service-to-service request/response bridge for Shopwell services through `publishServiceEvent` and `subscribeServiceEvent`, imported from `@shopwell-ag/meteor-admin-sdk/es/_private/bridge`.
+
+  The bridge handles origin validation, event contracts, response correlation, configurable timeouts, request deduplication, and per-subscription concurrency, which defaults to `single`. It includes service origin constants and the `copilot.chat.prompt.v1` contract.
+
+  Add Zod as a runtime dependency for message and event schema validation. SDK failures use a separate response discriminator and structured `ServiceEventError` codes, including `INVALID_PARAMS` for invalid origins or timeouts.
+
+  The bridge is available only through its subpath export so importing the SDK root does not include bridge validation and Zod.
+
+### Patch Changes
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Include the complete Apache-2.0 LICENSE and legal NOTICE in every published package.
+
 ## 6.15.2
 
 ### Patch Changes

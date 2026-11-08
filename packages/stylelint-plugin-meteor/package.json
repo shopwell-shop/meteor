@@ -1,6 +1,6 @@
 {
   "name": "@shopwell-ag/stylelint-plugin-meteor",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shopwell-shop/meteor.git"

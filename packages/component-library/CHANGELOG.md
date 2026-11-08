@@ -1,5 +1,28 @@
 # Changelog
 
+## 5.12.0
+
+### Minor Changes
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Add the `mt-extension-icon` component, which shows an extension icon in a square box with rounded corners and a subtle border, sized by the `--scale-size-*` tokens, with a placeholder when no image is given or the image fails to load
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Add the `mt-nav` component for the main application navigation, with sections, up to three levels of nested rows and keyboard navigation. The component is experimental and still under development, so its API may change in upcoming releases.
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Add the `searchable` option to custom buttons with `children` in `mt-text-editor`. The dropdown then shows a search field that filters the children by name and translated label, and an empty state when nothing matches.
+
+### Patch Changes
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Make the check mark of a checked or indeterminate, disabled `mt-checkbox` visible in dark mode. It used a border token as its color and now uses `--color-icon-primary-disabled`, like the dot of a checked, disabled radio.
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Remove the party horn icon from the `new` variant of `mt-promo-badge`.
+
+- [#16](https://github.com/shopwell-shop/meteor/pull/16) [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c) Thanks [@xgll7](https://github.com/xgll7)! - Include the complete Apache-2.0 LICENSE and legal NOTICE in every published package.
+
+- Updated dependencies [[`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c), [`8acfd4f`](https://github.com/shopwell-shop/meteor/commit/8acfd4fa2805fe1199c1e1d636c5e7aa06348f1c)]:
+  - @shopwell-ag/meteor-admin-sdk@6.16.0
+  - @shopwell-ag/meteor-icon-kit@5.13.1
+  - @shopwell-ag/meteor-tokens@1.4.2
+
 ## 5.11.0
 
 ### Minor Changes
