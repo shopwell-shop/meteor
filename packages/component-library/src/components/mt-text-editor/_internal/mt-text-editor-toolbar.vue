@@ -8,7 +8,11 @@
           :disabled="disabled"
           :button="button"
         >
-          <mt-popover v-if="button.children" :key="button.name">
+          <mt-popover
+            v-if="button.children"
+            :key="button.name"
+            @update:is-opened="(isOpened: boolean) => onChildPopoverToggle(button, isOpened)"
+          >
             <template #trigger="{ toggleFloatingUi }">
               <mt-text-editor-toolbar-button
                 :button="button"
@@ -19,8 +23,19 @@
             </template>
 
             <template #popover-items__base="{ toggleFloatingUi }">
+              <label
+                v-if="button.searchable"
+                :ref="(element) => setChildSearchLabel(button, element)"
+                class="mt-text-editor-toolbar__children-search"
+              >
+                <span class="visually-hidden">{{
+                  t("mt-text-editor-toolbar.childSearch.label")
+                }}</span>
+                <mt-search v-model="childSearchTerms[button.name]" size="small" />
+              </label>
+
               <mt-popover-item
-                v-for="child in button.children"
+                v-for="child in getVisibleChildren(button)"
                 :key="child.name"
                 :label="t(child.label)"
                 :icon="child.icon"
@@ -32,6 +47,15 @@
                   }
                 "
               />
+
+              <mt-text
+                v-if="button.searchable && getVisibleChildren(button).length === 0"
+                class="mt-text-editor-toolbar__children-empty"
+                size="xs"
+                color="color-text-secondary-default"
+              >
+                {{ t("mt-text-editor-toolbar.childSearch.noResults") }}
+              </mt-text>
             </template>
           </mt-popover>
 
@@ -56,7 +80,11 @@
           :disabled="disabled"
           :button="button"
         >
-          <mt-popover v-if="button.children" :key="button.name">
+          <mt-popover
+            v-if="button.children"
+            :key="button.name"
+            @update:is-opened="(isOpened: boolean) => onChildPopoverToggle(button, isOpened)"
+          >
             <template #trigger="{ toggleFloatingUi }">
               <mt-text-editor-toolbar-button
                 :button="button"
@@ -67,14 +95,34 @@
             </template>
 
             <template #popover-items__base>
+              <label
+                v-if="button.searchable"
+                :ref="(element) => setChildSearchLabel(button, element)"
+                class="mt-text-editor-toolbar__children-search"
+              >
+                <span class="visually-hidden">{{
+                  t("mt-text-editor-toolbar.childSearch.label")
+                }}</span>
+                <mt-search v-model="childSearchTerms[button.name]" size="small" />
+              </label>
+
               <mt-popover-item
-                v-for="child in button.children"
+                v-for="child in getVisibleChildren(button)"
                 :key="child.name"
                 :label="t(child.label)"
                 :icon="child.icon"
                 :type="child.isActive && child.isActive(props.editor) ? 'active' : 'default'"
                 :onLabelClick="() => handleButtonClick(child)"
               />
+
+              <mt-text
+                v-if="button.searchable && getVisibleChildren(button).length === 0"
+                class="mt-text-editor-toolbar__children-empty"
+                size="xs"
+                color="color-text-secondary-default"
+              >
+                {{ t("mt-text-editor-toolbar.childSearch.noResults") }}
+              </mt-text>
             </template>
           </mt-popover>
 
@@ -93,9 +141,11 @@
 
 <script setup lang="ts">
 import type { Editor } from "@tiptap/vue-3";
-import { computed, watch, type PropType } from "vue";
+import { computed, nextTick, ref, watch, type ComponentPublicInstance, type PropType } from "vue";
 import mtPopover from "@/components/mt-popover/mt-popover.vue";
 import mtPopoverItem from "@/components/mt-popover-item/mt-popover-item.vue";
+import mtSearch from "@/components/mt-search/mt-search.vue";
+import mtText from "@/components/mt-text/mt-text.vue";
 import mtTextEditorToolbarButton from "./mt-text-editor-toolbar-button.vue";
 import { useI18n } from "vue-i18n";
 
@@ -106,6 +156,8 @@ export interface CustomButton {
   isActive?: (editor: Editor) => boolean;
   action?: (editor: Editor) => void;
   children?: CustomButton[];
+  // Shows a search field above the children of a toolbar dropdown; contextual buttons ignore it
+  searchable?: boolean;
   alignment?: "left" | "right";
   // For sorting the button order. Default using 1000s steps to provide space for custom buttons
   position?: number;
@@ -143,34 +195,42 @@ const { t } = useI18n({
           undo: "Undo",
           redo: "Redo",
         },
+        childSearch: {
+          label: "Search entries",
+          noResults: "No results found.",
+        },
       },
     },
-    de: {
+    zh: {
       "mt-text-editor-toolbar": {
         buttons: {
-          format: "Format",
-          p: "Absatz",
-          h1: "Überschrift 1",
-          h2: "Überschrift 2",
-          h3: "Überschrift 3",
-          h4: "Überschrift 4",
-          h5: "Überschrift 5",
-          h6: "Überschrift 6",
-          bold: "Fett",
-          italic: "Kursiv",
-          underline: "Unterstrichen",
-          strikethrough: "Durchgestrichen",
-          superscript: "Hochgestellt",
-          subscript: "Tiefgestellt",
-          "text-alignment": "Textausrichtung",
-          "align-left": "Links ausrichten",
-          "align-center": "Zentriert ausrichten",
-          "align-right": "Rechts ausrichten",
-          justify: "Blocksatz",
-          "unordered-list": "Unsortierte Liste einfügen",
-          "numbered-list": "Sortierte Liste einfügen",
-          undo: "Rückgängig",
-          redo: "Wiederholen",
+          format: "格式",
+          p: "段落",
+          h1: "标题 1",
+          h2: "标题 2",
+          h3: "标题 3",
+          h4: "标题 4",
+          h5: "标题 5",
+          h6: "标题 6",
+          bold: "加粗",
+          italic: "斜体",
+          underline: "下划线",
+          strikethrough: "删除线",
+          superscript: "上标",
+          subscript: "下标",
+          "text-alignment": "文本对齐",
+          "align-left": "左对齐",
+          "align-center": "居中对齐",
+          "align-right": "右对齐",
+          justify: "两端对齐",
+          "unordered-list": "插入无序列表",
+          "numbered-list": "插入有序列表",
+          undo: "撤销",
+          redo: "重做",
+        },
+        childSearch: {
+          label: "搜索条目",
+          noResults: "未找到结果。",
         },
       },
     },
@@ -405,6 +465,44 @@ const buttonsRight = computed(() => {
     });
 });
 
+const childSearchTerms = ref<Record<string, string>>({});
+
+const getVisibleChildren = (button: CustomButton) => {
+  const children = button.children ?? [];
+  const term = (childSearchTerms.value[button.name] ?? "").trim().toLowerCase();
+
+  if (!button.searchable || !term) {
+    return children;
+  }
+
+  return children.filter((child) =>
+    [child.name, t(child.label)].some((value) => value.toLowerCase().includes(term)),
+  );
+};
+
+const childSearchLabels: Record<string, HTMLElement | null> = {};
+
+const setChildSearchLabel = (
+  button: CustomButton,
+  element: Element | ComponentPublicInstance | null,
+) => {
+  childSearchLabels[button.name] = element as HTMLElement | null;
+};
+
+const onChildPopoverToggle = async (button: CustomButton, isOpened: boolean) => {
+  if (!isOpened) {
+    childSearchTerms.value[button.name] = "";
+    return;
+  }
+
+  if (!button.searchable) {
+    return;
+  }
+
+  await nextTick();
+  childSearchLabels[button.name]?.querySelector("input")?.focus();
+};
+
 const handleButtonClick = (button: CustomButton) => {
   if (!button.action) {
     return;
@@ -461,6 +559,19 @@ watch(
 
 .mt-text-editor-toolbar__buttons-right {
   margin-left: auto;
+}
+
+.mt-text-editor-toolbar__children-search {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: var(--scale-size-8) 0 var(--scale-size-4);
+  background-color: var(--color-background-primary-default);
+}
+
+.mt-text-editor-toolbar__children-empty {
+  padding: var(--scale-size-8) 0;
 }
 
 .mt-text-editor-toolbar :deep(.mt-floating-ui) {

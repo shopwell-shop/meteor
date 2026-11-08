@@ -7,7 +7,9 @@
   },
   "main": "./dist/commonjs/index.js",
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "NOTICE"
   ],
   "scripts": {
     "build": "tshy",

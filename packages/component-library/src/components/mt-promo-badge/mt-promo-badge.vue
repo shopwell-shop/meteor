@@ -63,7 +63,7 @@ const badgeIcon = computed(() =>
     ? "solid-code"
     : props.variant === "shopwell-ai"
       ? "solid-sparkles"
-      : "solid-party-horn",
+      : undefined,
 );
 
 const iconColor = computed(() =>

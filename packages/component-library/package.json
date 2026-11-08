@@ -31,7 +31,9 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "NOTICE"
   ],
   "sideEffects": [
     "*.vue",
