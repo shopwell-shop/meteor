@@ -38,6 +38,7 @@ import MtSnackbar from "./components/mt-snackbar/mt-snackbar.vue";
 import MtAvatar from "./components/mt-avatar/mt-avatar.vue";
 import MtExtensionIcon from "./components/mt-extension-icon/mt-extension-icon.vue";
 import MtNav from "./components/mt-nav/mt-nav.vue";
+import MtScrollArea from "./components/mt-scroll-area/mt-scroll-area.vue";
 import type {
   NavActiveMatcher,
   NavItem,
@@ -45,7 +46,11 @@ import type {
   NavLinkTarget,
   NavSection,
 } from "./components/mt-nav/mt-nav.vue";
-import { useSnackbar, type Snackbar } from "./components/mt-snackbar/composables/use-snackbar";
+import {
+  useSnackbar,
+  type Snackbar,
+  type SnackbarLink,
+} from "./components/mt-snackbar/composables/use-snackbar";
 import MtPromoBadge from "./components/mt-promo-badge/mt-promo-badge.vue";
 import MtStatusDot from "./components/mt-status-dot/mt-status-dot.vue";
 import MtPopover from "./components/mt-popover/mt-popover.vue";
@@ -138,6 +143,9 @@ export {
   MtDataTable,
   MtPagination,
   MtSkeletonBar,
+  /**
+   * @deprecated tag:v6 - Will be removed in the next major version. Use `mt-snackbar` with `useSnackbar` instead.
+   */
   MtToast,
   MtSnackbar,
   MtPromoBadge,
@@ -165,6 +173,7 @@ export {
   MtAvatar,
   MtExtensionIcon,
   MtNav,
+  MtScrollArea,
   type NavActiveMatcher,
   type NavItem,
   type NavLinkComponent,
@@ -228,7 +237,7 @@ export {
 };
 
 // Exporting types
-export type { Filter, Option, Toast, Snackbar, ChartOptions, BreadcrumbItem };
+export type { Filter, Option, Toast, Snackbar, SnackbarLink, ChartOptions, BreadcrumbItem };
 export type { Theme, ResolvedTheme, UseThemeOptions, UseThemeReturn };
 export type { Editor } from "@tiptap/vue-3";
 export type { default as Link } from "@tiptap/extension-link";
